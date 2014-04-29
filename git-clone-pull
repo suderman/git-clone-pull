@@ -12,7 +12,9 @@ repository=$1
 directory=$2
 
 # Ensure git exists
-curl -sS install.suderman.io/git | sh
+command -v git >/dev/null 2>&1 || {
+  curl -sS install.suderman.io/git | sh
+}
 
 # Check if the directory exists
 if [ -d $directory ]; then
