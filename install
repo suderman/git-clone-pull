@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# 2013 Jon Suderman
+# https://github.com/suderman/git-clone-pull/
+
+# Open a terminal and run this command:
+# curl https://git-clone-pull.suderman.io/install | sh
+
+# Ensure /usr/local/bin exists
+if [ ! -d "/usr/local" ]; then
+  sudo mkdir -p /usr/local/bin
+  ULB_OWNER=`whoami`:`ls -ld /usr | awk '{print $4}'`
+  sudo chown $ULB_OWNER /usr/{local,local/bin}
+fi
+
+# Download git-clone-pull into /usr/local/bin
+sudo curl https://raw.github.com/suderman/git-clone-pull/master/git-clone-pull -o /usr/local/bin/git-clone-pull
+
+# Set permissions
+ULB_OWNER=`ls -ld /usr/local/bin | awk '{print $3}'`:`ls -ld /usr/local/bin | awk '{print $4}'`
+sudo chown $ULB_OWNER /usr/local/bin/git-clone-pull 
+sudo chmod +x /usr/local/bin/git-clone-pull
+
+echo "Installed git-clone-pull to /usr/local/bin"
+
