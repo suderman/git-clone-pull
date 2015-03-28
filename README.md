@@ -5,7 +5,7 @@ One command to clone or pull a Git repo
 ## Installation
 
 Open a terminal and run this command:  
-`curl git-clone-pull.suderman.io/install | sh`
+`curl suderman.github.io/git-clone-pull/install | sh`
 
 ## Usage
 
